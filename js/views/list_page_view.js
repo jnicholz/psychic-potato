@@ -215,30 +215,32 @@ class ListPageView
         trigger : 'hover',
         popover: function(){
             var index = $(this).attr("data-id");      //get data-id from current TR
-            let item= that.data[that.storage.getItemIndex(index)]; 
+            var item= that.data[that.storage.getItemIndex(index)]; 
             return `<style="background-image: url('${item[that.view.list.logoCol]}')"`
         },
         title : function(){
             var index = $(this).attr("data-id");      //get data-id from current TR
-            let item= that.data[that.storage.getItemIndex(index)];    //grab the current object from your data
+            var item= that.data[that.storage.getItemIndex(index)];    //grab the current object from your data
             //return image using the image path in the logoCol (from view model) attribute on the data, output name using nameCol
             return `<img class="img-fluid rounded-circle" src="${item[that.view.list.logoCol]}" width="40" height="40">  ${item[that.view.list.nameCol]} `;
         },
         content : function() {
           var index = $(this).attr("data-id");
           let item= that.data[that.storage.getItemIndex(index)];
-          let htmlContent="";
+          let htmlContent=''
+          
           //using the 'columns' array in the view model, output the column data where popover=true
           that.columns.forEach((col)=>{
-            if (col.popover)
-              htmlContent+=`<p>${col.label}: ${item[col.name]}</p>`;
+            if (col.popover){
+                htmlContent+=`<p>${col.label}: ${item[col.name]}</p>`;
+            }
           })
           return htmlContent;
         }
     });
     }
-     async getFileContents(url){
+    async getFileContents(url){
         return await $.get(url);
         
-     }
+    }
 }

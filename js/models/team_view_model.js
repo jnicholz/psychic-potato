@@ -34,23 +34,22 @@ var teamViewModel = {
             {
                 label: "Team Name",
                 name: "name",
-                popover: "true"            //true if you want to show in popover
+                popover: true            //true if you want to show in popover
             },
-
             {
                 label: "Coach Name",
                 name: "coachName",
-                popover: "true"
+                popover: true
             },
             {
                 label: "Coach Phone",
                 name: "coachPhone",
-                popover: "true"
+                popover: true
             },
             {
                 label: "Players",
                 name: "numPlayers",
-                popover: "false"            //true if you want to show in popover
+                popover: false            //true if you want to show in popover
             },
         ]
     } 
