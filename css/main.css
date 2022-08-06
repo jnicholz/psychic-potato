@@ -1,0 +1,8 @@
+body{
+    background-image: url("bentMetal.jpg");
+    background-size:cover;
+    background-repeat: no-repeat; 
+    background-attachment:local; 
+    min-height: 100vh;
+}
+
