@@ -134,8 +134,18 @@ class ListPageView
         //I store the data-id and data-name as attributes on myModal element to use in the yesButton click event
 
         $myModal.on("show.bs.modal", function(ev){  //fired when modal is about to be shown
-        
-            //TODO your implementation here
+            let button =ev.relatedTarget
+            let rowItemId = $(button).closest("tr").attr('data-id');
+            
+            let dataItem = that.data[that.storage.getItemIndex(rowItemId)];
+            let dataName = dataItem[that.list.nameCol];
+
+            var $modalTitle = $('.modal-title');
+            $modalTitle.text(`Delete ${dataName}?`);
+
+            $myModal.attr("data-id", rowItemId);
+            $myModal.attr("data-name", dataName);
+            
         });
 
         $("#yesButton").click((e) =>{    //fired when 'Yes' button is clicked
@@ -145,8 +155,9 @@ class ListPageView
             this.addAlert(this.view.entitySingle, itemName);   //insert an alert in 'alertContainer'
 
             //TODO, call deleteListItem using Promise pattern.  When promise fulfilled, call renderList
-           
-            
+            this.deleteListItem(itemId).then((i)=>{
+                this.renderList()
+            });
         })
         
         

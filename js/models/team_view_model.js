@@ -48,7 +48,7 @@ var teamViewModel = {
                 popover: "true"
             },
             {
-                label: "players",
+                label: "Players",
                 name: "numPlayers",
                 popover: "false"            //true if you want to show in popover
             },
