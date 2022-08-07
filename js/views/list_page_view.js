@@ -142,6 +142,9 @@ class ListPageView
 
             var $modalTitle = $('.modal-title');
             $modalTitle.text(`Delete ${dataName}?`);
+            
+            var $modalContent = $('.modal-body')
+            $modalContent.html(`Are you sure you want to delete ${dataName}?<img src="${dataItem[that.view.list.logoCol]}" class="image-fluid rounded float-right p-2"  width="100" height="100" >`)
 
             $myModal.attr("data-id", rowItemId);
             $myModal.attr("data-name", dataName);
@@ -222,7 +225,7 @@ class ListPageView
             var index = $(this).attr("data-id");      //get data-id from current TR
             var item= that.data[that.storage.getItemIndex(index)];    //grab the current object from your data
             //return image using the image path in the logoCol (from view model) attribute on the data, output name using nameCol
-            return `<img class="img-fluid rounded-circle" src="${item[that.view.list.logoCol]}" width="40" height="40">  ${item[that.view.list.nameCol]} `;
+            return `<img class="img-fluid rounded" src="${item[that.view.list.logoCol]}" width="40" height="40">  ${item[that.view.list.nameCol]} `;
         },
         content : function() {
           var index = $(this).attr("data-id");

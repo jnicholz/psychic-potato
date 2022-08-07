@@ -14,14 +14,17 @@
 
       <% view.columns.forEach( function(col, key){ %>
           
-      <th class="thead sortable <%=view.list.thClasses%>" data-name="<%=col.name%>"> <%=col.label%> <i id="<%=col.name%>-asc" class="fa fa-arrow-up" aria-hidden="true" style="display:none"></i><i id="<%=col.name%>-desc" class="fa fa-arrow-down" aria-hidden="true" style="display:none"></i> </th>
-      <% }) %>
-    
+      <th class="thead sortable <%=view.list.thClasses%>" data-name="<%=col.name%>"> 
+        <%=col.label%> 
+          <i id="<%=col.name%>-asc" class="fa fa-arrow-up" aria-hidden="true" style="display:none" ></i>
+          <i id="<%=col.name%>-desc" class="fa fa-arrow-down" aria-hidden="true" style="display:none"></i> 
+        <% }) %>
+      </th>
       <th class="thead <%=view.list.thClasses%>"> Actions </th>
     </tr>
     
     <% data.forEach(function(de){ %>
-      <tr data-id = "<%=de.id%>" data-bs-toggle="popover">
+      <tr data-id = "<%=de.id%>" data-bs-toggle="popover" data-bs-placement="top">
         <% view.columns.forEach(function(col, key){ %>
           <td >
             <%=de[col.name]%>
@@ -29,12 +32,11 @@
         <% }) %>
         
         <td>
-          <span class="fas fa-edit" ></span>
-          <span class="fas fa-trash" data-bs-toggle="modal" data-bs-target="#myModal"></span>
-
-          </td>
+          <span class="fas fa-edit text-primary" ></span>
+          <span class="fas fa-trash text-danger" data-bs-toggle="modal" data-bs-target="#myModal"></span>
+        </td>
       </tr>
-      <% }) %> 
+    <% }) %> 
   </table>
     <!-- Output Table data rows
     This process uses a loop within a loop.  Iterate the 'data' item passed into the view renderer.

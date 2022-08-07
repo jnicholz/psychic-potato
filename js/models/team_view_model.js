@@ -34,8 +34,8 @@ var teamViewModel = {
             {
                 label: "Team Name",
                 name: "name",
-                popover: true            //true if you want to show in popover
-            },
+                popover: false            //true if you want to show in popover
+            },                            // Cannot be in quotes, must be raw value  
             {
                 label: "Coach Name",
                 name: "coachName",
@@ -49,7 +49,7 @@ var teamViewModel = {
             {
                 label: "Players",
                 name: "numPlayers",
-                popover: false            //true if you want to show in popover
+                popover: true            
             },
         ]
     } 
